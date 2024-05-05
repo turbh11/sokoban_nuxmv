@@ -1,6 +1,6 @@
 #####################
 #### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file11_2.smv ####
-#### Execution time: 2416.554861307144 seconds = 0:40:16.554861 ######
+#### Execution time: 7570.428880214691 seconds = 2:06:10.428880 ######
 #### the solution steps are: L L L L L L L L L L L L L U L L D R R R R R R R R R R R R R R (31 steps) ####
 #################
 
@@ -63,7 +63,6 @@
 -- no counterexample found with bound 29
 -- no counterexample found with bound 30
 -- no counterexample found with bound 31
--- no counterexample found with bound 32
 -- specification !( F solve)    is false
 -- as demonstrated by the following execution sequence
 Trace Description: BMC Counterexample 
@@ -199,7 +198,7 @@ Trace Type: Counterexample
     board[6][13] = "wall"
     board[6][14] = "floor"
     board[6][15] = "floor"
-    board[6][16] = "box_on_goal"
+    board[6][16] = "goal"
     board[6][17] = "goal"
     board[6][18] = "wall"
     board[7][0] = "wall"
@@ -219,7 +218,7 @@ Trace Type: Counterexample
     board[7][14] = "floor"
     board[7][15] = "floor"
     board[7][16] = "warehouse_keeper_on_goal"
-    board[7][17] = "goal"
+    board[7][17] = "box_on_goal"
     board[7][18] = "wall"
     board[8][0] = "wall"
     board[8][1] = "wall"
@@ -279,14 +278,14 @@ Trace Type: Counterexample
     board[10][17] = "wall"
     board[10][18] = "wall"
     shift = 0
-    count_of_box_on_goals = 3
+    count_of_box_on_goals = 6
     solve = FALSE
     goal6 = 0
     goal5 = 0
-    goal4 = 0
+    goal4 = 6
     goal3 = 0
     goal2 = 0
-    goal1 = 3
+    goal1 = 0
     L_able[9][9] = TRUE
     U_able[9][9] = TRUE
     L_able[9][8] = TRUE
@@ -316,9 +315,9 @@ Trace Type: Counterexample
     D_able[7][17] = TRUE
     U_able[7][17] = TRUE
     L_able[7][16] = TRUE
-    R_able[7][16] = TRUE
+    R_able[7][16] = FALSE
     D_able[7][16] = TRUE
-    U_able[7][16] = FALSE
+    U_able[7][16] = TRUE
     L_able[7][15] = TRUE
     R_able[7][15] = FALSE
     D_able[7][15] = TRUE
@@ -704,33 +703,20 @@ Trace Type: Counterexample
     R_able[7][13] = FALSE
     R_able[7][12] = TRUE
     D_able[6][14] = FALSE
+  -- Loop starts here
   -> State: 1.32 <-
     board[7][14] = "floor"
     board[7][15] = "warehouse_keeper"
     board[7][16] = "box_on_goal"
     solve = TRUE
-    goal3 = 2
-    U_able[8][16] = FALSE
+    goal3 = 5
     U_able[8][15] = FALSE
     U_able[8][14] = TRUE
     L_able[7][17] = FALSE
     L_able[7][15] = TRUE
+    R_able[7][15] = FALSE
     R_able[7][14] = FALSE
     R_able[7][13] = TRUE
     D_able[6][15] = FALSE
     D_able[6][14] = TRUE
-  -- Loop starts here
   -> State: 1.33 <-
-    board[6][15] = "warehouse_keeper"
-    board[7][15] = "floor"
-    shift = "U"
-    U_able[8][15] = TRUE
-    L_able[7][17] = TRUE
-    L_able[7][16] = TRUE
-    U_able[7][15] = FALSE
-    R_able[7][14] = TRUE
-    L_able[6][17] = FALSE
-    L_able[6][16] = FALSE
-    D_able[6][15] = TRUE
-    R_able[6][14] = FALSE
-  -> State: 1.34 <-

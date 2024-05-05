@@ -1,7 +1,7 @@
 #####################
 #### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file08_2.smv ####
-#### Execution time: 0.30300021171569824 seconds = 0:00:00.303000 ######
-#### the solution steps are: R R D L L (5 steps) ####
+#### Execution time: 0.24596500396728516 seconds = 0:00:00.245965 ######
+#### the solution steps are: R R D L (4 steps) ####
 #################
 
 
@@ -133,14 +133,14 @@ Trace Type: Counterexample
     board[8][8] = "wall"
     board[8][9] = "wall"
     shift = 0
-    count_of_box_on_goals = 5
+    count_of_box_on_goals = 9
     solve = FALSE
-    goal6 = 2
+    goal6 = 3
     goal5 = 0
     goal4 = 0
     goal3 = 0
     goal2 = 0
-    goal1 = 3
+    goal1 = 6
     L_able[7][8] = TRUE
     U_able[7][8] = TRUE
     L_able[7][7] = TRUE
@@ -287,8 +287,9 @@ Trace Type: Counterexample
     board[5][3] = "warehouse_keeper_on_goal"
     board[5][4] = "floor"
     shift = "L"
+    solve = TRUE
     goal6 = 0
-    goal5 = 2
+    goal5 = 5
     U_able[6][4] = TRUE
     L_able[5][4] = FALSE
     R_able[5][3] = TRUE
@@ -297,16 +298,14 @@ Trace Type: Counterexample
     D_able[4][2] = FALSE
   -- Loop starts here
   -> State: 1.6 <-
-    board[5][1] = "box_on_goal"
-    board[5][2] = "warehouse_keeper_on_goal"
     board[5][3] = "goal"
-    solve = TRUE
-    goal5 = 0
-    goal4 = 3
+    board[5][4] = "warehouse_keeper"
+    shift = "R"
+    U_able[6][4] = FALSE
     L_able[5][4] = TRUE
-    L_able[5][3] = FALSE
-    L_able[5][2] = FALSE
+    R_able[5][3] = FALSE
     R_able[5][2] = TRUE
+    R_able[5][1] = TRUE
+    D_able[4][4] = FALSE
     D_able[4][3] = TRUE
-    D_able[4][1] = FALSE
   -> State: 1.7 <-

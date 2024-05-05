@@ -2,7 +2,7 @@ MODULE main
 VAR
     board: array 0..6 of array 0..6 of {"warehouse_keeper","warehouse_keeper_on_goal", "box", "box_on_goal", "wall", "goal", "floor"};
     shift: {"L" , "R" , "U" , "D" , 0};
-    count_of_box_on_goals: 0..8;
+    count_of_box_on_goals: 0..12;
 
 
 ASSIGN
@@ -56,7 +56,7 @@ ASSIGN
     init(board[6][5]) := "wall";
     init(board[6][6]) := "wall";
     init(shift):= 0;
-    init(count_of_box_on_goals) := 3;
+    init(count_of_box_on_goals) := 4;
 
 
 DEFINE
@@ -117,18 +117,18 @@ DEFINE
     U_able[5][4] := (board[4][4] = "floor" ) | ((board[4][4] = "box" ) &  (board[3][4] = "floor"));
     L_able[5][4] := (board[5][3] = "goal" ) | ((board[5][3] = "box_on_goal" ) &  (board[5][2] = "floor"));
     goal1 := case  -- for each goal/box on goal in init.
-       board[3][3] = "box_on_goal" : 3;
+       board[3][3] = "box_on_goal" : 4;
        TRUE: 0;
     esac;
     goal2 := case  -- for each goal/box on goal in init.
-       board[4][3] = "box_on_goal" : 2;
+       board[4][3] = "box_on_goal" : 4;
        TRUE: 0;
     esac;
     goal3 := case  -- for each goal/box on goal in init.
-       board[5][3] = "box_on_goal" : 3;
+       board[5][3] = "box_on_goal" : 4;
        TRUE: 0;
     esac;
-    solve := (goal1 + goal2 + goal3) > 3;
+    solve := (goal1 + goal2 + goal3) > 4;
 
 
 ASSIGN

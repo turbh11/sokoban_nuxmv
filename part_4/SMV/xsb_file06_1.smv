@@ -35,7 +35,7 @@ ASSIGN
     init(board[2][4]) := "floor";
     init(board[2][5]) := "floor";
     init(board[2][6]) := "floor";
-    init(board[2][7]) := "goal";
+    init(board[2][7]) := "box_on_goal";
     init(board[2][8]) := "wall";
     init(board[2][9]) := "wall";
     init(board[2][10]) := "wall";
@@ -46,14 +46,14 @@ ASSIGN
     init(board[3][4]) := "floor";
     init(board[3][5]) := "floor";
     init(board[3][6]) := "floor";
-    init(board[3][7]) := "floor";
+    init(board[3][7]) := "warehouse_keeper";
     init(board[3][8]) := "wall";
     init(board[3][9]) := "wall";
     init(board[3][10]) := "wall";
     init(board[4][0]) := "wall";
     init(board[4][1]) := "floor";
     init(board[4][2]) := "floor";
-    init(board[4][3]) := "warehouse_keeper";
+    init(board[4][3]) := "floor";
     init(board[4][4]) := "wall";
     init(board[4][5]) := "floor";
     init(board[4][6]) := "floor";
@@ -68,7 +68,7 @@ ASSIGN
     init(board[5][4]) := "floor";
     init(board[5][5]) := "floor";
     init(board[5][6]) := "floor";
-    init(board[5][7]) := "box_on_goal";
+    init(board[5][7]) := "goal";
     init(board[5][8]) := "wall";
     init(board[5][9]) := "wall";
     init(board[5][10]) := "wall";
@@ -117,7 +117,7 @@ ASSIGN
     init(board[9][9]) := "wall";
     init(board[9][10]) := "wall";
     init(shift):= 0;
-    init(count_of_box_on_goals) := 1;
+    init(count_of_box_on_goals) := 2;
 
 
 DEFINE
@@ -251,7 +251,7 @@ DEFINE
        board[5][7] = "box_on_goal" : 1;
        TRUE: 0;
     esac;
-    solve := (goal1 + goal2) > 1;
+    solve := (goal1 + goal2) > 2;
 
 
 ASSIGN

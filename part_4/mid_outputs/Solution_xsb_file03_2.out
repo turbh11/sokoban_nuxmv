@@ -1,7 +1,7 @@
 #####################
 #### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file03_2.smv ####
-#### Execution time: 0.041991233825683594 seconds = 0:00:00.041991 ######
-#### the solution steps are: U L (2 steps) ####
+#### Execution time: 0.033933401107788086 seconds = 0:00:00.033933 ######
+#### the solution steps are: D L (2 steps) ####
 #################
 
 
@@ -49,14 +49,14 @@ Trace Type: Counterexample
     board[1][0] = "wall"
     board[1][1] = "wall"
     board[1][2] = "wall"
-    board[1][3] = "goal"
+    board[1][3] = "box_on_goal"
     board[1][4] = "wall"
     board[1][5] = "wall"
     board[1][6] = "wall"
     board[2][0] = "wall"
     board[2][1] = "wall"
     board[2][2] = "wall"
-    board[2][3] = "box"
+    board[2][3] = "warehouse_keeper"
     board[2][4] = "wall"
     board[2][5] = "wall"
     board[2][6] = "wall"
@@ -64,13 +64,13 @@ Trace Type: Counterexample
     board[3][1] = "goal"
     board[3][2] = "box"
     board[3][3] = "floor"
-    board[3][4] = "floor"
-    board[3][5] = "box_on_goal"
+    board[3][4] = "box"
+    board[3][5] = "goal"
     board[3][6] = "wall"
     board[4][0] = "wall"
     board[4][1] = "wall"
     board[4][2] = "wall"
-    board[4][3] = "warehouse_keeper"
+    board[4][3] = "floor"
     board[4][4] = "wall"
     board[4][5] = "wall"
     board[4][6] = "wall"
@@ -89,41 +89,41 @@ Trace Type: Counterexample
     board[6][5] = "wall"
     board[6][6] = "wall"
     shift = 0
-    count_of_box_on_goals = 2
+    count_of_box_on_goals = 6
     solve = FALSE
-    goal4 = 1
-    goal3 = 1
+    goal4 = 3
+    goal3 = 0
     goal2 = 0
-    goal1 = 0
-    U_able[5][3] = FALSE
+    goal1 = 3
+    U_able[5][3] = TRUE
     D_able[4][3] = FALSE
     U_able[4][3] = TRUE
     L_able[3][5] = TRUE
     L_able[3][4] = TRUE
-    R_able[3][4] = FALSE
+    R_able[3][4] = TRUE
     L_able[3][3] = TRUE
     R_able[3][3] = TRUE
-    D_able[3][3] = FALSE
-    U_able[3][3] = TRUE
+    D_able[3][3] = TRUE
+    U_able[3][3] = FALSE
     L_able[3][2] = TRUE
     R_able[3][2] = TRUE
     R_able[3][1] = TRUE
     D_able[2][3] = TRUE
-    U_able[2][3] = TRUE
-    D_able[1][3] = TRUE
+    U_able[2][3] = FALSE
+    D_able[1][3] = FALSE
   -> State: 1.2 <-
+    board[2][3] = "floor"
     board[3][3] = "warehouse_keeper"
-    board[4][3] = "floor"
-    shift = "U"
+    shift = "D"
     count_of_box_on_goals = 0
-    U_able[5][3] = TRUE
     U_able[4][3] = FALSE
+    L_able[3][5] = FALSE
     L_able[3][4] = FALSE
-    D_able[3][3] = TRUE
+    U_able[3][3] = TRUE
     R_able[3][2] = FALSE
     R_able[3][1] = FALSE
     D_able[2][3] = FALSE
-    D_able[1][3] = FALSE
+    D_able[1][3] = TRUE
   -- Loop starts here
   -> State: 1.3 <-
     board[3][1] = "box_on_goal"
@@ -131,12 +131,12 @@ Trace Type: Counterexample
     board[3][3] = "floor"
     shift = "L"
     solve = TRUE
-    goal2 = 1
+    goal2 = 3
     U_able[4][3] = TRUE
+    L_able[3][5] = TRUE
     L_able[3][4] = TRUE
     L_able[3][3] = FALSE
     L_able[3][2] = FALSE
     R_able[3][2] = TRUE
     D_able[2][3] = TRUE
-    D_able[1][3] = TRUE
   -> State: 1.4 <-

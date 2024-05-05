@@ -1,16 +1,16 @@
 #####################
 #### nuxmv command: nuXmv.exe xsb_file09_1.smv ####
-#### Execution time: 4.84199857711792 seconds = 0:00:04.841999 ######
+#### Execution time: 4.929998874664307 seconds = 0:00:04.929999 ######
 #### the solution steps are: U L L D R R U R D R D D L L U R U U L D (20 steps) ####
 #################
 The total solution took 2 iterations
-Iteration 1 took 0.11899828910827637 
+Iteration 1 took 0.287996768951416 
 The steps for iteration 1 are: ['R', 'R', 'D']
-Iteration 2 took 4.84199857711792 
+Iteration 2 took 4.929998874664307 
 The steps for iteration 2 are: ['U', 'L', 'L', 'D', 'R', 'R', 'U', 'R', 'D', 'R', 'D', 'D', 'L', 'L', 'U', 'R', 'U', 'U', 'L', 'D']
 #################
 #####Summary####
-The total time for all iterations is: 4.960996866226196 seconds = 0:00:04.960997
+The total time for all iterations is: 5.217995643615723 seconds = 0:00:05.217996
 The total steps for all iterations are: R R D U L L D R R U R D R D D L L U R U U L D  (23) steps
 #################
 

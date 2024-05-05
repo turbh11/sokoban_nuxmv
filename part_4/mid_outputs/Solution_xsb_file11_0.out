@@ -1,6 +1,6 @@
 #####################
 #### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file11_0.smv ####
-#### Execution time: 1987.062106847763 seconds = 0:33:07.062107 ######
+#### Execution time: 2103.3788628578186 seconds = 0:35:03.378863 ######
 #### the solution steps are: U L L L U U U L U L L D L L D D D R R R R R R R R R R R R (29 steps) ####
 #################
 
@@ -700,7 +700,7 @@ Trace Type: Counterexample
     board[7][15] = "warehouse_keeper"
     board[7][16] = "box_on_goal"
     solve = TRUE
-    goal3 = 2
+    goal3 = 5
     U_able[8][15] = FALSE
     U_able[8][14] = TRUE
     L_able[7][17] = FALSE
@@ -712,14 +712,16 @@ Trace Type: Counterexample
   -- Loop starts here
   -> State: 1.31 <-
     board[7][15] = "floor"
-    board[8][15] = "warehouse_keeper"
-    shift = "D"
-    L_able[8][16] = FALSE
+    board[7][16] = "warehouse_keeper_on_goal"
+    board[7][17] = "box_on_goal"
+    goal4 = 6
+    goal3 = 0
+    U_able[8][16] = FALSE
     U_able[8][15] = TRUE
-    R_able[8][14] = FALSE
-    L_able[7][17] = TRUE
     L_able[7][16] = TRUE
-    D_able[7][15] = FALSE
+    R_able[7][16] = FALSE
+    R_able[7][15] = FALSE
     R_able[7][14] = TRUE
+    D_able[6][16] = FALSE
     D_able[6][15] = TRUE
   -> State: 1.32 <-

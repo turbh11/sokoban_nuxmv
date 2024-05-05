@@ -1,31 +1,31 @@
 #####################
 #### nuxmv command: nuXmv.exe xsb_file11_8.smv ####
-#### Execution time: 97.90046882629395 seconds = 0:01:37.900469 ######
+#### Execution time: 86.74022650718689 seconds = 0:01:26.740227 ######
 #### the solution steps are: L L L L L L L U U U L L U U U R D D L L D D D D R R R U U U L L U L D D D U U L L D D D R R R R R R R R R R R U R D L D R (61 steps) ####
 #################
 The total solution took 9 iterations
-Iteration 1 took 1987.062106847763 
+Iteration 1 took 2103.3788628578186 
 The steps for iteration 1 are: ['U', 'L', 'L', 'L', 'U', 'U', 'U', 'L', 'U', 'L', 'L', 'D', 'L', 'L', 'D', 'D', 'D', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R']
-Iteration 2 took 0.6769957542419434 
-The steps for iteration 2 are: ['D', 'R', 'U']
-Iteration 3 took 2416.554861307144 
+Iteration 2 took 0.25299715995788574 
+The steps for iteration 2 are: ['R']
+Iteration 3 took 7570.428880214691 
 The steps for iteration 3 are: ['L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'U', 'L', 'L', 'D', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R']
-Iteration 4 took 0.7810041904449463 
-The steps for iteration 4 are: ['U', 'R', 'D']
-Iteration 5 took 8287.19240951538 
-The steps for iteration 5 are: ['L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'U', 'U', 'U', 'L', 'U', 'L', 'L', 'D', 'D', 'D', 'U', 'U', 'L', 'L', 'D', 'D', 'D', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R']
-Iteration 6 took 1.8351247310638428 
-The steps for iteration 6 are: ['D', 'R', 'U']
-Iteration 7 took 2236.932042360306 
-The steps for iteration 7 are: ['L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'U', 'U', 'U', 'L', 'L', 'U', 'L', 'D', 'D', 'D', 'U', 'U', 'L', 'L', 'D', 'D', 'D', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R']
-Iteration 8 took 742.7426500320435 
-The steps for iteration 8 are: ['R', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'U', 'U', 'U', 'L', 'L', 'U', 'U', 'U', 'L', 'D', 'D', 'D', 'D', 'D', 'U', 'U', 'L', 'L', 'D', 'D', 'D', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R']
-Iteration 9 took 97.90046882629395 
+Iteration 4 took 1.1697492599487305 
+The steps for iteration 4 are: ['D', 'R', 'U', 'L', 'U', 'R']
+Iteration 5 took 4830.348171710968 
+The steps for iteration 5 are: ['L', 'L', 'D', 'L', 'L', 'L', 'L', 'L', 'L', 'U', 'U', 'U', 'L', 'U', 'L', 'L', 'D', 'D', 'D', 'U', 'U', 'L', 'L', 'D', 'D', 'D', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R']
+Iteration 6 took 3.279818296432495 
+The steps for iteration 6 are: ['U', 'R', 'D', 'L', 'D', 'R']
+Iteration 7 took 3961.3613777160645 
+The steps for iteration 7 are: ['L', 'L', 'U', 'L', 'L', 'L', 'L', 'L', 'L', 'U', 'U', 'U', 'L', 'L', 'U', 'L', 'D', 'D', 'D', 'U', 'U', 'L', 'L', 'D', 'D', 'D', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R']
+Iteration 8 took 843.780837059021 
+The steps for iteration 8 are: ['D', 'R', 'U', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'L', 'U', 'U', 'U', 'L', 'L', 'U', 'U', 'U', 'L', 'D', 'D', 'D', 'D', 'D', 'U', 'U', 'L', 'L', 'D', 'D', 'D', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R']
+Iteration 9 took 86.74022650718689 
 The steps for iteration 9 are: ['L', 'L', 'L', 'L', 'L', 'L', 'L', 'U', 'U', 'U', 'L', 'L', 'U', 'U', 'U', 'R', 'D', 'D', 'L', 'L', 'D', 'D', 'D', 'D', 'R', 'R', 'R', 'U', 'U', 'U', 'L', 'L', 'U', 'L', 'D', 'D', 'D', 'U', 'U', 'L', 'L', 'D', 'D', 'D', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'R', 'U', 'R', 'D', 'L', 'D', 'R']
 #################
 #####Summary####
-The total time for all iterations is: 15771.677663564682 seconds = 4:22:51.677664
-The total steps for all iterations are: U L L L U U U L U L L D L L D D D R R R R R R R R R R R R D R U L L L L L L L L L L L L L U L L D R R R R R R R R R R R R R R U R D L L L L L L L L U U U L U L L D D D U U L L D D D R R R R R R R R R R R R D R U L L L L L L L L U U U L L U L D D D U U L L D D D R R R R R R R R R R R R R L L L L L L L L U U U L L U U U L D D D D D U U L L D D D R R R R R R R R R R R R L L L L L L L U U U L L U U U R D D L L D D D D R R R U U U L L U L D D D U U L L D D D R R R R R R R R R R R U R D L D R  (246) steps
+The total time for all iterations is: 19400.74092078209 seconds = 5:23:20.740921
+The total steps for all iterations are: U L L L U U U L U L L D L L D D D R R R R R R R R R R R R R L L L L L L L L L L L L L U L L D R R R R R R R R R R R R R R D R U L U R L L D L L L L L L U U U L U L L D D D U U L L D D D R R R R R R R R R R R R U R D L D R L L U L L L L L L U U U L L U L D D D U U L L D D D R R R R R R R R R R R R D R U L L L L L L L L U U U L L U U U L D D D D D U U L L D D D R R R R R R R R R R R R L L L L L L L U U U L L U U U R D D L L D D D D R R R U U U L L U L D D D U U L L D D D R R R R R R R R R R R U R D L D R  (254) steps
 #################
 
 
@@ -270,14 +270,14 @@ Trace Type: Counterexample
     board[10][17] = "wall"
     board[10][18] = "wall"
     shift = 0
-    count_of_box_on_goals = 13
+    count_of_box_on_goals = 28
     solve = FALSE
-    goal6 = 3
+    goal6 = 6
     goal5 = 0
-    goal4 = 2
-    goal3 = 2
-    goal2 = 3
-    goal1 = 3
+    goal4 = 6
+    goal3 = 5
+    goal2 = 6
+    goal1 = 5
     L_able[9][9] = TRUE
     U_able[9][9] = TRUE
     L_able[9][8] = TRUE
@@ -995,7 +995,7 @@ Trace Type: Counterexample
     board[8][16] = "box_on_goal"
     shift = "R"
     solve = TRUE
-    goal5 = 3
+    goal5 = 5
     L_able[8][17] = FALSE
     L_able[8][15] = TRUE
     R_able[8][15] = FALSE

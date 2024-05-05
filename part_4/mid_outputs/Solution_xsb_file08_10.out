@@ -1,7 +1,7 @@
 #####################
-#### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file08_0.smv ####
-#### Execution time: 0.09595012664794922 seconds = 0:00:00.095950 ######
-#### the solution steps are: L (1 steps) ####
+#### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file08_10.smv ####
+#### Execution time: 0.2609977722167969 seconds = 0:00:00.260998 ######
+#### the solution steps are: D (1 steps) ####
 #################
 
 
@@ -33,7 +33,6 @@
 
 -- no counterexample found with bound 0
 -- no counterexample found with bound 1
--- no counterexample found with bound 2
 -- specification !( F solve)    is false
 -- as demonstrated by the following execution sequence
 Trace Description: BMC Counterexample 
@@ -72,30 +71,30 @@ Trace Type: Counterexample
     board[3][0] = "wall"
     board[3][1] = "wall"
     board[3][2] = "wall"
-    board[3][3] = "floor"
-    board[3][4] = "box"
-    board[3][5] = "box"
+    board[3][3] = "warehouse_keeper"
+    board[3][4] = "floor"
+    board[3][5] = "floor"
     board[3][6] = "wall"
     board[3][7] = "wall"
     board[3][8] = "floor"
     board[3][9] = "wall"
     board[4][0] = "wall"
-    board[4][1] = "goal"
-    board[4][2] = "goal"
+    board[4][1] = "box_on_goal"
+    board[4][2] = "box_on_goal"
     board[4][3] = "box_on_goal"
-    board[4][4] = "warehouse_keeper"
+    board[4][4] = "floor"
     board[4][5] = "floor"
     board[4][6] = "floor"
     board[4][7] = "floor"
     board[4][8] = "floor"
     board[4][9] = "wall"
     board[5][0] = "wall"
-    board[5][1] = "goal"
-    board[5][2] = "goal"
-    board[5][3] = "box_on_goal"
+    board[5][1] = "box_on_goal"
+    board[5][2] = "box_on_goal"
+    board[5][3] = "goal"
     board[5][4] = "floor"
     board[5][5] = "wall"
-    board[5][6] = "box"
+    board[5][6] = "floor"
     board[5][7] = "floor"
     board[5][8] = "wall"
     board[5][9] = "wall"
@@ -130,14 +129,14 @@ Trace Type: Counterexample
     board[8][8] = "wall"
     board[8][9] = "wall"
     shift = 0
-    count_of_box_on_goals = 5
+    count_of_box_on_goals = 24
     solve = FALSE
-    goal6 = 3
-    goal5 = 0
-    goal4 = 0
+    goal6 = 0
+    goal5 = 5
+    goal4 = 6
     goal3 = 2
-    goal2 = 0
-    goal1 = 0
+    goal2 = 5
+    goal1 = 6
     L_able[7][8] = TRUE
     U_able[7][8] = TRUE
     L_able[7][7] = TRUE
@@ -161,7 +160,7 @@ Trace Type: Counterexample
     U_able[6][6] = TRUE
     D_able[6][4] = TRUE
     U_able[6][4] = TRUE
-    L_able[5][7] = FALSE
+    L_able[5][7] = TRUE
     D_able[5][7] = TRUE
     U_able[5][7] = TRUE
     R_able[5][6] = TRUE
@@ -169,15 +168,15 @@ Trace Type: Counterexample
     U_able[5][6] = TRUE
     L_able[5][4] = TRUE
     D_able[5][4] = TRUE
-    U_able[5][4] = FALSE
-    L_able[5][3] = TRUE
+    U_able[5][4] = TRUE
+    L_able[5][3] = FALSE
     R_able[5][3] = TRUE
-    U_able[5][3] = TRUE
-    L_able[5][2] = TRUE
+    U_able[5][3] = FALSE
+    L_able[5][2] = FALSE
     R_able[5][2] = TRUE
-    U_able[5][2] = TRUE
+    U_able[5][2] = FALSE
     R_able[5][1] = TRUE
-    U_able[5][1] = TRUE
+    U_able[5][1] = FALSE
     L_able[4][8] = TRUE
     U_able[4][8] = TRUE
     L_able[4][7] = TRUE
@@ -186,33 +185,33 @@ Trace Type: Counterexample
     L_able[4][6] = TRUE
     R_able[4][6] = TRUE
     D_able[4][6] = TRUE
-    L_able[4][5] = FALSE
+    L_able[4][5] = TRUE
     R_able[4][5] = TRUE
     U_able[4][5] = TRUE
-    L_able[4][4] = TRUE
+    L_able[4][4] = FALSE
     R_able[4][4] = TRUE
     D_able[4][4] = TRUE
     U_able[4][4] = TRUE
-    L_able[4][3] = TRUE
-    R_able[4][3] = FALSE
-    D_able[4][3] = FALSE
-    U_able[4][3] = TRUE
-    L_able[4][2] = TRUE
-    R_able[4][2] = FALSE
-    D_able[4][2] = TRUE
-    R_able[4][1] = TRUE
-    D_able[4][1] = TRUE
+    L_able[4][3] = FALSE
+    R_able[4][3] = TRUE
+    D_able[4][3] = TRUE
+    U_able[4][3] = FALSE
+    L_able[4][2] = FALSE
+    R_able[4][2] = TRUE
+    D_able[4][2] = FALSE
+    R_able[4][1] = FALSE
+    D_able[4][1] = FALSE
     D_able[3][8] = TRUE
     U_able[3][8] = TRUE
     L_able[3][5] = TRUE
     D_able[3][5] = TRUE
     U_able[3][5] = TRUE
-    L_able[3][4] = TRUE
-    R_able[3][4] = FALSE
-    D_able[3][4] = FALSE
+    L_able[3][4] = FALSE
+    R_able[3][4] = TRUE
+    D_able[3][4] = TRUE
     U_able[3][4] = TRUE
-    R_able[3][3] = FALSE
-    D_able[3][3] = FALSE
+    R_able[3][3] = TRUE
+    D_able[3][3] = TRUE
     U_able[3][3] = TRUE
     L_able[2][8] = TRUE
     D_able[2][8] = TRUE
@@ -227,10 +226,10 @@ Trace Type: Counterexample
     U_able[2][5] = TRUE
     L_able[2][4] = TRUE
     R_able[2][4] = TRUE
-    D_able[2][4] = FALSE
+    D_able[2][4] = TRUE
     U_able[2][4] = TRUE
     R_able[2][3] = TRUE
-    D_able[2][3] = TRUE
+    D_able[2][3] = FALSE
     U_able[2][3] = TRUE
     L_able[1][6] = TRUE
     D_able[1][6] = TRUE
@@ -242,36 +241,22 @@ Trace Type: Counterexample
     D_able[1][4] = TRUE
     R_able[1][3] = TRUE
     D_able[1][3] = TRUE
+  -- Loop starts here
   -> State: 1.2 <-
-    board[4][2] = "box_on_goal"
+    board[3][3] = "floor"
     board[4][3] = "warehouse_keeper_on_goal"
-    board[4][4] = "floor"
-    shift = "L"
+    board[5][3] = "box_on_goal"
+    shift = "D"
     count_of_box_on_goals = 0
     solve = TRUE
+    goal6 = 3
     goal3 = 0
-    goal2 = 5
-    U_able[5][4] = TRUE
-    U_able[5][3] = FALSE
-    U_able[5][2] = FALSE
-    L_able[4][5] = TRUE
-    L_able[4][4] = FALSE
-    R_able[4][3] = TRUE
-    R_able[4][1] = FALSE
-    D_able[3][4] = TRUE
-    D_able[2][4] = TRUE
-  -- Loop starts here
+    L_able[5][4] = FALSE
+    R_able[5][1] = FALSE
+    D_able[4][3] = FALSE
+    U_able[4][3] = TRUE
+    R_able[4][2] = FALSE
+    L_able[3][4] = TRUE
+    D_able[3][3] = FALSE
+    D_able[2][3] = TRUE
   -> State: 1.3 <-
-    board[4][1] = "box_on_goal"
-    board[4][2] = "warehouse_keeper_on_goal"
-    board[4][3] = "goal"
-    goal2 = 0
-    goal1 = 6
-    U_able[5][3] = TRUE
-    U_able[5][1] = FALSE
-    L_able[4][4] = TRUE
-    L_able[4][3] = FALSE
-    L_able[4][2] = FALSE
-    R_able[4][2] = TRUE
-    D_able[3][3] = TRUE
-  -> State: 1.4 <-
