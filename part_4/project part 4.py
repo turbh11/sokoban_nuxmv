@@ -636,14 +636,15 @@ class Sokoban:
         def terminate_process():
             nonlocal term_pros
             nuxmv_process.terminate()
-            term_pros = " Process terminated after 6 hours "
-            print("Process terminated after 6 hours")
+            term_pros = " Process terminated after 3 hours "
+            print("Process terminated after 3 hours")
 
-        timer = threading.Timer(6 * 60 * 60 , terminate_process)
+        timer = threading.Timer(3 * 60 * 60 , terminate_process)
         timer.start()
+        
 
         stdout, _ = nuxmv_process.communicate()
-        timer.cancel()  # If process ends before 2 hours, cancel the timer
+        timer.cancel()  # If process ends before 3 hours, cancel the timer
 
         end_time = time.time()
         execution_time = end_time - start_time  # Time it took for the process to run
@@ -725,28 +726,29 @@ class Sokoban:
             # if not win from the first time we run so we need to add to the box number one becuase in her we found a solution
             #if len(self.goal_location) != self.num_of_boxes:
             #    self.num_of_boxes +=1
+            with open(smv_file, 'r') as f:
+                nuxmv_content = f.read()
+            # Find the state changes
+            state_changes = re.findall(r'(State:.*?)(?=State:|$)', relevant_content, re.DOTALL)
+            # Apply the state changes to the nuxmv file
+            for state_change in state_changes:
+                board_changes = re.findall(r'(board\[\d+\]\[\d+\]) = "(.*?)"', state_change)
+                for board_change in board_changes:
+                    nuxmv_content = re.sub(r'(init\(' + re.escape(board_change[0]) + r'\) := ).*?;', r'\1"' + board_change[1] + '";', nuxmv_content)
+            
+            init_statements = re.findall(r'init\((board\[\d+\]\[\d+\])\) := "(.*?)"', nuxmv_content)
+            sum_priorities = 0
+            for init_statement in init_statements:
+                if init_statement[1] == "box_on_goal":
+                    match = re.match(r'board\[(\d+)\]\[(\d+)\]', init_statement[0])
+                    if match:
+                        x, y = map(int, match.groups())
+                        sum_priorities += self.box_priority[x][y]
+            
+            self.num_of_boxes = sum_priorities
         
         
-        with open(smv_file, 'r') as f:
-            nuxmv_content = f.read()
-        # Find the state changes
-        state_changes = re.findall(r'(State:.*?)(?=State:|$)', relevant_content, re.DOTALL)
-        # Apply the state changes to the nuxmv file
-        for state_change in state_changes:
-            board_changes = re.findall(r'(board\[\d+\]\[\d+\]) = "(.*?)"', state_change)
-            for board_change in board_changes:
-                nuxmv_content = re.sub(r'(init\(' + re.escape(board_change[0]) + r'\) := ).*?;', r'\1"' + board_change[1] + '";', nuxmv_content)
         
-        init_statements = re.findall(r'init\((board\[\d+\]\[\d+\])\) := "(.*?)"', nuxmv_content)
-        sum_priorities = 0
-        for init_statement in init_statements:
-            if init_statement[1] == "box_on_goal":
-                match = re.match(r'board\[(\d+)\]\[(\d+)\]', init_statement[0])
-                if match:
-                    x, y = map(int, match.groups())
-                    sum_priorities += self.box_priority[x][y]
-        
-        self.num_of_boxes = sum_priorities
         
         self.iteration_counts.append(execution_time)
         self.iteration_steps += counter
