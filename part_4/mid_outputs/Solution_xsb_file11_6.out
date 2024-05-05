@@ -1,6 +1,6 @@
 #####################
-#### nuxmv command: nuXmv.exe -bmc -bmc_length 60 xsb_file11_6.smv ####
-#### Execution time: 2261.035143852234 seconds = 0:37:41.035144 ######
+#### nuxmv command: nuXmv.exe xsb_file11_6.smv ####
+#### Execution time: 2236.932042360306 seconds = 0:37:16.932042 ######
 #### the solution steps are: L L L L L L L L U U U L L U L D D D U U L L D D D R R R R R R R R R R R R (37 steps) ####
 #################
 
@@ -31,48 +31,9 @@
 *** Copyright (C) 2009-2019 by University of Trento and others
 *** See http://mathsat.fbk.eu
 
--- no counterexample found with bound 0
--- no counterexample found with bound 1
--- no counterexample found with bound 2
--- no counterexample found with bound 3
--- no counterexample found with bound 4
--- no counterexample found with bound 5
--- no counterexample found with bound 6
--- no counterexample found with bound 7
--- no counterexample found with bound 8
--- no counterexample found with bound 9
--- no counterexample found with bound 10
--- no counterexample found with bound 11
--- no counterexample found with bound 12
--- no counterexample found with bound 13
--- no counterexample found with bound 14
--- no counterexample found with bound 15
--- no counterexample found with bound 16
--- no counterexample found with bound 17
--- no counterexample found with bound 18
--- no counterexample found with bound 19
--- no counterexample found with bound 20
--- no counterexample found with bound 21
--- no counterexample found with bound 22
--- no counterexample found with bound 23
--- no counterexample found with bound 24
--- no counterexample found with bound 25
--- no counterexample found with bound 26
--- no counterexample found with bound 27
--- no counterexample found with bound 28
--- no counterexample found with bound 29
--- no counterexample found with bound 30
--- no counterexample found with bound 31
--- no counterexample found with bound 32
--- no counterexample found with bound 33
--- no counterexample found with bound 34
--- no counterexample found with bound 35
--- no counterexample found with bound 36
--- no counterexample found with bound 37
--- no counterexample found with bound 38
--- specification !( F solve)    is false
+-- specification !( F solve)  is false
 -- as demonstrated by the following execution sequence
-Trace Description: BMC Counterexample 
+Trace Description: LTL Counterexample 
 Trace Type: Counterexample 
   -> State: 1.1 <-
     board[0][0] = "wall"
@@ -788,17 +749,14 @@ Trace Type: Counterexample
   -- Loop starts here
   -> State: 1.39 <-
     board[7][15] = "floor"
-    board[7][16] = "warehouse_keeper_on_goal"
-    board[7][17] = "box_on_goal"
-    goal4 = 2
-    goal3 = 0
-    U_able[8][17] = FALSE
+    board[8][15] = "warehouse_keeper"
+    shift = "D"
+    L_able[8][16] = FALSE
     U_able[8][15] = TRUE
+    R_able[8][14] = FALSE
+    L_able[7][17] = TRUE
     L_able[7][16] = TRUE
-    R_able[7][16] = FALSE
-    R_able[7][15] = FALSE
+    D_able[7][15] = FALSE
     R_able[7][14] = TRUE
-    D_able[6][17] = FALSE
-    D_able[6][16] = FALSE
     D_able[6][15] = TRUE
   -> State: 1.40 <-

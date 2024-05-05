@@ -1,6 +1,6 @@
 #####################
-#### nuxmv command: nuXmv.exe -bmc -bmc_length 60 xsb_file11_0.smv ####
-#### Execution time: 718.4426920413971 seconds = 0:11:58.442692 ######
+#### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file11_0.smv ####
+#### Execution time: 1987.062106847763 seconds = 0:33:07.062107 ######
 #### the solution steps are: U L L L U U U L U L L D L L D D D R R R R R R R R R R R R (29 steps) ####
 #################
 

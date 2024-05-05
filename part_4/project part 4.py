@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.colors import ListedColormap
 from matplotlib.patches import Rectangle
+import concurrent.futures
 
 base_folder = r'C:\Users\user\OneDrive - Bar-Ilan University - Students\תואר שני\סמסטר א\אימות פורמלי וסינטזה\תרגילים\תרגילים של השנה\project\part_4'
 nuxmv_dir = r"C:\Users\user\OneDrive - Bar-Ilan University - Students\Desktop\nuXmv-2.0.0-win64\nuXmv-2.0.0-win64\bin"
@@ -616,13 +617,65 @@ class Sokoban:
     
         
 
-    
+    def run_engine(self, engine, smv_file):
+        nuxmv_path = os.path.join(nuxmv_dir, "nuXmv.exe")
+        run_com = "nuXmv.exe "
+        print(f"Running nuXmv with {engine} engine")
+        if engine == 'SAT':
+            args = [nuxmv_path, "-bmc", "-bmc_length", "80", smv_file]
+            run_com += "-bmc -bmc_length 80 "
+        elif engine == 'BDD':
+            args = [nuxmv_path, smv_file]
+        else:
+            print("Invalid engine. Please choose either 'SAT' or 'BDD'")
+            return None
+
+        start_time = time.time()
+        nuxmv_process = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
+        term_pros = ""
+        def terminate_process():
+            nonlocal term_pros
+            nuxmv_process.terminate()
+            term_pros = " Process terminated after 6 hours "
+            print("Process terminated after 6 hours")
+
+        timer = threading.Timer(6 * 60 * 60 , terminate_process)
+        timer.start()
+
+        stdout, _ = nuxmv_process.communicate()
+        timer.cancel()  # If process ends before 2 hours, cancel the timer
+
+        end_time = time.time()
+        execution_time = end_time - start_time  # Time it took for the process to run
+
+        return stdout, execution_time, run_com, term_pros
+
     '''
     Name: run_smv
     Input: smv_file (str): Path to the smv file
     Output: None
     Operation: Runs the SMV model and prints the result
     '''
+    def parallel_run_smv(self, smv_file):
+        executor = concurrent.futures.ThreadPoolExecutor()
+        try:
+            future_to_engine = {executor.submit(self.run_engine, engine, smv_file): engine for engine in ['SAT', 'BDD']}
+            futures = list(future_to_engine.keys())
+            for future in concurrent.futures.as_completed(future_to_engine):
+                engine = future_to_engine[future]
+                try:
+                    stdout, execution_time, run_com, term_pros = future.result()
+                except Exception as exc:
+                    print('%r generated an exception: %s' % (engine, exc))
+                else:
+                    print('%r engine returned %r' % (engine, run_com))
+                    # If one engine finishes, cancel the other
+                    for other_future in futures:
+                        if other_future != future:
+                            other_future.cancel()
+                    return stdout, execution_time, run_com, term_pros
+        finally:
+            executor.shutdown(wait=False)
     def run_smv(self, smv_file, engine='SAT'):
         '''
         start_time = time.time()
@@ -632,38 +685,8 @@ class Sokoban:
         print(f'Time taken: {end_time - start_time} seconds')
         print(result.stdout.decode())
         '''
-        nuxmv_path = os.path.join(nuxmv_dir, "nuXmv.exe")        
-        #nuxmv_path = "C:\\Users\\user\\OneDrive - Bar-Ilan University - Students\\Desktop\\nuXmv-2.0.0-win64\\nuXmv-2.0.0-win64\\bin\\nuXmv.exe"
-        run_com = "nuXmv.exe "
-        print(f"Running nuXmv with {engine} engine")
-        if engine == 'SAT':
-            args = [nuxmv_path, "-bmc", "-bmc_length", "60", smv_file]
-            run_com += "-bmc -bmc_length 80 "
-        elif engine == 'BDD':
-            args = [nuxmv_path, smv_file]
-        else:
-            print("Invalid engine. Please choose either 'SAT' or 'BDD'")
-            return None
-        start_time = time.time()
-        nuxmv_process = subprocess.Popen(args, stdin=subprocess.PIPE, stdout=subprocess.PIPE, universal_newlines=True)
-        # Define a function to terminate the process and print a message
-        term_pros = ""
-        def terminate_process():
-            nonlocal term_pros
-            nuxmv_process.terminate()
-            term_pros = " Process terminated after 6 hours "
-            print("Process terminated after 2 hours")
-
-        #timer = threading.Timer(6 * 60 * 60 , terminate_process)
-        #timer.start()
-
-        stdout, _ = nuxmv_process.communicate()
-        #timer.cancel()  # If process ends before 2 hours, cancel the timer
-
-        end_time = time.time()
-
-        # Measure performances
-        execution_time = end_time - start_time
+        
+        stdout, execution_time, run_com, term_pros = self.parallel_run_smv(smv_file)
         formatted_time = str(timedelta(seconds=execution_time))
 
         print(f"Execution time: {formatted_time}")
@@ -873,7 +896,7 @@ def process_xsb_files():
         if filename.endswith('.txt'):
             xsb_file = os.path.join(xsb_folder, filename)
             base_filename = os.path.splitext(filename)[0]
-            smv_file = os.path.join(nuxmv_dir,  base_filename + '_8.smv')
+            smv_file = os.path.join(nuxmv_dir,  base_filename + '_0.smv')
 
             sokoban = Sokoban(xsb_file)
             print(f"Processing board {filename}")
@@ -889,7 +912,7 @@ def process_xsb_files():
             os.makedirs(destination_folder, exist_ok=True)  # Create the folder if it doesn't exist
             destination_file = os.path.join(destination_folder, os.path.basename(smv_file))
             shutil.copy(smv_file, destination_file)
-            sokoban.draw(base_filename+'_8')
+            sokoban.draw(base_filename+'_0')
             output_sat, time_sat = sokoban.run_smv(smv_file, 'SAT')
             continue_process_files(base_filename,sokoban)
 
@@ -899,7 +922,7 @@ def process_xsb_files():
 def continue_process_files(base_filename,sokoban):
     # Iterate over the solution files    
     #solution_dir = os.path.join(base_folder, "outputs")
-    j = 7
+    j = -1
     while(True):
         if sokoban.max_priority_box == sokoban.num_of_boxes:
             output_folder = 'outputs'
