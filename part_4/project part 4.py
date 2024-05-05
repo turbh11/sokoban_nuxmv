@@ -113,7 +113,10 @@ class Sokoban:
                         k -= 1
 
         counts = [[max(counts_tb[i][j], counts_bt[i][j], counts_lr[i][j], counts_rl[i][j]) for j in range(self.width)] for i in range(self.length)]
-
+        for i in range(self.length):
+            for j in range(self.width):
+                if self.board[i][j] in ['.', '+', '*'] and counts[i][j] == 0: 
+                    counts[i][j] = 1
         return counts
 
     '''
