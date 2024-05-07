@@ -1,7 +1,7 @@
 #####################
 #### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file11_5.smv ####
-#### Execution time: 3.279818296432495 seconds = 0:00:03.279818 ######
-#### the solution steps are: U R D L D R (6 steps) ####
+#### Execution time: 3437.7434175014496 seconds = 0:57:17.743418 ######
+#### the solution steps are: L L L L L L L L U U U L U L L D D D U U L L D D D R R R R R R R R R R R R (37 steps) ####
 #################
 
 
@@ -38,6 +38,37 @@
 -- no counterexample found with bound 4
 -- no counterexample found with bound 5
 -- no counterexample found with bound 6
+-- no counterexample found with bound 7
+-- no counterexample found with bound 8
+-- no counterexample found with bound 9
+-- no counterexample found with bound 10
+-- no counterexample found with bound 11
+-- no counterexample found with bound 12
+-- no counterexample found with bound 13
+-- no counterexample found with bound 14
+-- no counterexample found with bound 15
+-- no counterexample found with bound 16
+-- no counterexample found with bound 17
+-- no counterexample found with bound 18
+-- no counterexample found with bound 19
+-- no counterexample found with bound 20
+-- no counterexample found with bound 21
+-- no counterexample found with bound 22
+-- no counterexample found with bound 23
+-- no counterexample found with bound 24
+-- no counterexample found with bound 25
+-- no counterexample found with bound 26
+-- no counterexample found with bound 27
+-- no counterexample found with bound 28
+-- no counterexample found with bound 29
+-- no counterexample found with bound 30
+-- no counterexample found with bound 31
+-- no counterexample found with bound 32
+-- no counterexample found with bound 33
+-- no counterexample found with bound 34
+-- no counterexample found with bound 35
+-- no counterexample found with bound 36
+-- no counterexample found with bound 37
 -- specification !( F solve)    is false
 -- as demonstrated by the following execution sequence
 Trace Description: BMC Counterexample 
@@ -143,7 +174,7 @@ Trace Type: Counterexample
     board[5][2] = "wall"
     board[5][3] = "floor"
     board[5][4] = "wall"
-    board[5][5] = "floor"
+    board[5][5] = "box"
     board[5][6] = "wall"
     board[5][7] = "wall"
     board[5][8] = "floor"
@@ -191,8 +222,8 @@ Trace Type: Counterexample
     board[7][12] = "floor"
     board[7][13] = "floor"
     board[7][14] = "floor"
-    board[7][15] = "warehouse_keeper"
-    board[7][16] = "box_on_goal"
+    board[7][15] = "floor"
+    board[7][16] = "warehouse_keeper_on_goal"
     board[7][17] = "box_on_goal"
     board[7][18] = "wall"
     board[8][0] = "wall"
@@ -253,13 +284,13 @@ Trace Type: Counterexample
     board[10][17] = "wall"
     board[10][18] = "wall"
     shift = 0
-    count_of_box_on_goals = 17
+    count_of_box_on_goals = 22
     solve = FALSE
     goal6 = 0
     goal5 = 0
-    goal4 = 6
-    goal3 = 5
-    goal2 = 6
+    goal4 = 10
+    goal3 = 0
+    goal2 = 12
     goal1 = 0
     L_able[9][9] = TRUE
     U_able[9][9] = TRUE
@@ -275,10 +306,10 @@ Trace Type: Counterexample
     U_able[8][17] = FALSE
     L_able[8][16] = TRUE
     R_able[8][16] = TRUE
-    U_able[8][16] = TRUE
+    U_able[8][16] = FALSE
     L_able[8][15] = TRUE
     R_able[8][15] = TRUE
-    U_able[8][15] = FALSE
+    U_able[8][15] = TRUE
     R_able[8][14] = TRUE
     U_able[8][14] = TRUE
     U_able[8][11] = TRUE
@@ -289,7 +320,7 @@ Trace Type: Counterexample
     L_able[7][17] = FALSE
     D_able[7][17] = TRUE
     U_able[7][17] = FALSE
-    L_able[7][16] = FALSE
+    L_able[7][16] = TRUE
     R_able[7][16] = FALSE
     D_able[7][16] = TRUE
     U_able[7][16] = TRUE
@@ -298,7 +329,7 @@ Trace Type: Counterexample
     D_able[7][15] = TRUE
     U_able[7][15] = TRUE
     L_able[7][14] = TRUE
-    R_able[7][14] = FALSE
+    R_able[7][14] = TRUE
     D_able[7][14] = TRUE
     U_able[7][14] = TRUE
     L_able[7][13] = TRUE
@@ -338,10 +369,10 @@ Trace Type: Counterexample
     D_able[6][17] = TRUE
     L_able[6][16] = TRUE
     R_able[6][16] = FALSE
-    D_able[6][16] = TRUE
+    D_able[6][16] = FALSE
     L_able[6][15] = TRUE
     R_able[6][15] = TRUE
-    D_able[6][15] = FALSE
+    D_able[6][15] = TRUE
     R_able[6][14] = TRUE
     D_able[6][14] = TRUE
     D_able[6][8] = TRUE
@@ -406,46 +437,10 @@ Trace Type: Counterexample
     R_able[1][5] = TRUE
     D_able[1][5] = TRUE
   -> State: 1.2 <-
-    board[6][15] = "warehouse_keeper"
-    board[7][15] = "floor"
-    shift = "U"
-    count_of_box_on_goals = 0
-    U_able[8][15] = TRUE
-    L_able[7][17] = TRUE
-    L_able[7][16] = TRUE
-    U_able[7][15] = FALSE
-    R_able[7][14] = TRUE
-    L_able[6][16] = FALSE
-    D_able[6][15] = TRUE
-    R_able[6][14] = FALSE
-  -> State: 1.3 <-
-    board[6][15] = "floor"
-    board[6][16] = "warehouse_keeper_on_goal"
-    shift = "R"
-    U_able[8][16] = FALSE
-    U_able[7][16] = FALSE
-    U_able[7][15] = TRUE
-    L_able[6][17] = FALSE
-    L_able[6][16] = TRUE
-    R_able[6][15] = FALSE
-    R_able[6][14] = TRUE
-  -> State: 1.4 <-
-    board[6][16] = "goal"
-    board[7][16] = "warehouse_keeper_on_goal"
-    board[8][16] = "box_on_goal"
-    shift = "D"
-    goal5 = 5
-    goal3 = 0
-    L_able[7][17] = FALSE
-    D_able[7][16] = FALSE
-    U_able[7][16] = TRUE
-    L_able[6][17] = TRUE
-    D_able[6][16] = FALSE
-    R_able[6][15] = TRUE
-  -> State: 1.5 <-
     board[7][15] = "warehouse_keeper"
     board[7][16] = "goal"
     shift = "L"
+    count_of_box_on_goals = 0
     U_able[8][16] = TRUE
     U_able[8][15] = FALSE
     L_able[7][17] = TRUE
@@ -454,32 +449,345 @@ Trace Type: Counterexample
     R_able[7][14] = FALSE
     D_able[6][16] = TRUE
     D_able[6][15] = FALSE
-  -> State: 1.6 <-
+  -> State: 1.3 <-
+    board[7][14] = "warehouse_keeper"
     board[7][15] = "floor"
-    board[8][15] = "warehouse_keeper"
-    shift = "D"
-    L_able[8][17] = FALSE
-    L_able[8][16] = FALSE
     U_able[8][15] = TRUE
-    R_able[8][14] = FALSE
+    U_able[8][14] = FALSE
     L_able[7][16] = TRUE
-    D_able[7][15] = FALSE
+    L_able[7][15] = FALSE
     R_able[7][14] = TRUE
+    R_able[7][13] = FALSE
     D_able[6][15] = TRUE
-  -- Loop starts here
+    D_able[6][14] = FALSE
+  -> State: 1.4 <-
+    board[7][13] = "warehouse_keeper"
+    board[7][14] = "floor"
+    U_able[8][14] = TRUE
+    L_able[7][15] = TRUE
+    L_able[7][14] = FALSE
+    R_able[7][13] = TRUE
+    R_able[7][12] = FALSE
+    D_able[6][14] = TRUE
+  -> State: 1.5 <-
+    board[7][12] = "warehouse_keeper"
+    board[7][13] = "floor"
+    L_able[7][14] = TRUE
+    L_able[7][13] = FALSE
+    R_able[7][12] = TRUE
+    R_able[7][11] = FALSE
+  -> State: 1.6 <-
+    board[7][11] = "warehouse_keeper"
+    board[7][12] = "floor"
+    U_able[8][11] = FALSE
+    L_able[7][13] = TRUE
+    L_able[7][12] = FALSE
+    R_able[7][11] = TRUE
+    R_able[7][10] = FALSE
   -> State: 1.7 <-
-    board[8][15] = "floor"
-    board[8][16] = "warehouse_keeper_on_goal"
-    board[8][17] = "box_on_goal"
-    shift = "R"
-    solve = TRUE
-    goal6 = 6
-    goal5 = 0
-    L_able[8][16] = TRUE
-    R_able[8][16] = FALSE
-    R_able[8][15] = FALSE
-    R_able[8][14] = TRUE
-    D_able[7][17] = FALSE
-    D_able[7][15] = TRUE
-    D_able[6][17] = FALSE
+    board[7][10] = "warehouse_keeper"
+    board[7][11] = "floor"
+    U_able[8][11] = TRUE
+    L_able[7][12] = TRUE
+    L_able[7][11] = FALSE
+    R_able[7][10] = TRUE
+    R_able[7][9] = FALSE
   -> State: 1.8 <-
+    board[7][9] = "warehouse_keeper"
+    board[7][10] = "floor"
+    U_able[8][9] = FALSE
+    L_able[7][11] = TRUE
+    L_able[7][10] = FALSE
+    R_able[7][9] = TRUE
+    R_able[7][8] = FALSE
+  -> State: 1.9 <-
+    board[7][8] = "warehouse_keeper"
+    board[7][9] = "floor"
+    U_able[8][9] = TRUE
+    L_able[7][10] = TRUE
+    L_able[7][9] = FALSE
+    R_able[7][8] = TRUE
+    R_able[7][7] = FALSE
+    D_able[6][8] = FALSE
+  -> State: 1.10 <-
+    board[6][8] = "warehouse_keeper"
+    board[7][8] = "floor"
+    shift = "U"
+    L_able[7][9] = TRUE
+    U_able[7][8] = FALSE
+    R_able[7][7] = TRUE
+    D_able[6][8] = TRUE
+    D_able[5][8] = FALSE
+  -> State: 1.11 <-
+    board[5][8] = "warehouse_keeper"
+    board[6][8] = "floor"
+    U_able[7][8] = TRUE
+    U_able[6][8] = FALSE
+    D_able[5][8] = TRUE
+    D_able[4][8] = FALSE
+  -> State: 1.12 <-
+    board[4][8] = "warehouse_keeper"
+    board[5][8] = "floor"
+    U_able[6][8] = TRUE
+    U_able[5][8] = FALSE
+    D_able[4][8] = TRUE
+    R_able[4][7] = FALSE
+  -> State: 1.13 <-
+    board[4][7] = "warehouse_keeper"
+    board[4][8] = "floor"
+    shift = "L"
+    U_able[5][8] = TRUE
+    L_able[4][8] = FALSE
+    R_able[4][7] = TRUE
+    R_able[4][6] = FALSE
+    R_able[4][5] = FALSE
+    D_able[3][7] = FALSE
+  -> State: 1.14 <-
+    board[3][7] = "warehouse_keeper"
+    board[4][7] = "floor"
+    shift = "U"
+    L_able[4][8] = TRUE
+    U_able[4][7] = FALSE
+    R_able[4][6] = TRUE
+    R_able[4][5] = TRUE
+    D_able[3][7] = TRUE
+    R_able[3][6] = FALSE
+    D_able[2][7] = FALSE
+    D_able[1][7] = FALSE
+  -> State: 1.15 <-
+    board[3][6] = "warehouse_keeper"
+    board[3][7] = "floor"
+    shift = "L"
+    U_able[4][7] = TRUE
+    U_able[4][6] = FALSE
+    L_able[3][7] = FALSE
+    R_able[3][6] = TRUE
+    R_able[3][5] = FALSE
+    D_able[2][7] = TRUE
+    D_able[2][6] = FALSE
+    D_able[1][7] = TRUE
+  -> State: 1.16 <-
+    board[3][5] = "warehouse_keeper"
+    board[3][6] = "floor"
+    U_able[4][6] = TRUE
+    U_able[4][5] = FALSE
+    L_able[3][7] = TRUE
+    L_able[3][6] = FALSE
+    R_able[3][5] = TRUE
+    D_able[2][6] = TRUE
+    D_able[2][5] = FALSE
+    D_able[1][5] = FALSE
+  -> State: 1.17 <-
+    board[3][5] = "floor"
+    board[4][5] = "warehouse_keeper"
+    shift = "D"
+    U_able[6][5] = FALSE
+    U_able[5][5] = FALSE
+    L_able[4][7] = FALSE
+    L_able[4][6] = FALSE
+    U_able[4][5] = TRUE
+    R_able[4][4] = FALSE
+    L_able[3][6] = TRUE
+    D_able[3][5] = FALSE
+    D_able[2][5] = TRUE
+    D_able[1][5] = TRUE
+  -> State: 1.18 <-
+    board[4][5] = "floor"
+    board[5][5] = "warehouse_keeper"
+    board[6][5] = "box"
+    U_able[7][5] = FALSE
+    U_able[5][5] = TRUE
+    L_able[4][7] = TRUE
+    L_able[4][6] = TRUE
+    D_able[4][5] = FALSE
+    R_able[4][4] = TRUE
+    D_able[3][5] = TRUE
+  -> State: 1.19 <-
+    board[5][5] = "floor"
+    board[6][5] = "warehouse_keeper"
+    board[7][5] = "box"
+    U_able[8][5] = FALSE
+    U_able[6][5] = TRUE
+    D_able[5][5] = FALSE
+    D_able[4][5] = TRUE
+  -> State: 1.20 <-
+    board[5][5] = "warehouse_keeper"
+    board[6][5] = "floor"
+    shift = "U"
+    U_able[8][5] = TRUE
+    U_able[7][5] = TRUE
+    U_able[6][5] = FALSE
+    D_able[5][5] = TRUE
+    D_able[4][5] = FALSE
+  -> State: 1.21 <-
+    board[4][5] = "warehouse_keeper"
+    board[5][5] = "floor"
+    U_able[6][5] = TRUE
+    U_able[5][5] = FALSE
+    L_able[4][7] = FALSE
+    L_able[4][6] = FALSE
+    D_able[4][5] = TRUE
+    R_able[4][4] = FALSE
+    D_able[3][5] = FALSE
+  -> State: 1.22 <-
+    board[4][4] = "warehouse_keeper"
+    board[4][5] = "floor"
+    shift = "L"
+    U_able[5][5] = TRUE
+    L_able[4][7] = TRUE
+    L_able[4][6] = TRUE
+    L_able[4][5] = FALSE
+    R_able[4][4] = TRUE
+    R_able[4][3] = FALSE
+    D_able[3][5] = TRUE
+  -> State: 1.23 <-
+    board[4][3] = "warehouse_keeper"
+    board[4][4] = "floor"
+    U_able[5][3] = FALSE
+    L_able[4][5] = TRUE
+    L_able[4][4] = FALSE
+    R_able[4][3] = TRUE
+  -> State: 1.24 <-
+    board[4][3] = "floor"
+    board[5][3] = "warehouse_keeper"
+    shift = "D"
+    U_able[6][3] = FALSE
+    U_able[5][3] = TRUE
+    L_able[4][4] = TRUE
+    D_able[4][3] = FALSE
+  -> State: 1.25 <-
+    board[5][3] = "floor"
+    board[6][3] = "warehouse_keeper"
+    U_able[7][3] = FALSE
+    U_able[6][3] = TRUE
+    R_able[6][2] = FALSE
+    D_able[5][3] = FALSE
+    D_able[4][3] = TRUE
+  -> State: 1.26 <-
+    board[6][3] = "floor"
+    board[7][3] = "warehouse_keeper"
+    L_able[7][4] = FALSE
+    U_able[7][3] = TRUE
+    R_able[7][2] = FALSE
+    D_able[6][3] = FALSE
+    R_able[6][2] = TRUE
+    D_able[5][3] = TRUE
+  -> State: 1.27 <-
+    board[7][3] = "floor"
+    board[7][4] = "warehouse_keeper"
+    shift = "R"
+    L_able[7][6] = FALSE
+    L_able[7][5] = FALSE
+    L_able[7][4] = TRUE
+    R_able[7][3] = FALSE
+    R_able[7][2] = TRUE
+    D_able[6][3] = TRUE
+  -> State: 1.28 <-
+    board[7][4] = "floor"
+    board[7][5] = "warehouse_keeper"
+    board[7][6] = "box"
+    U_able[8][5] = FALSE
+    L_able[7][7] = FALSE
+    L_able[7][5] = TRUE
+    R_able[7][4] = FALSE
+    R_able[7][3] = TRUE
+    D_able[6][5] = FALSE
+  -> State: 1.29 <-
+    board[7][5] = "floor"
+    board[7][6] = "warehouse_keeper"
+    board[7][7] = "box"
+    U_able[8][5] = TRUE
+    L_able[7][8] = FALSE
+    L_able[7][6] = TRUE
+    R_able[7][5] = FALSE
+    R_able[7][4] = TRUE
+    D_able[6][5] = TRUE
+  -> State: 1.30 <-
+    board[7][6] = "floor"
+    board[7][7] = "warehouse_keeper"
+    board[7][8] = "box"
+    L_able[7][9] = FALSE
+    L_able[7][7] = TRUE
+    R_able[7][6] = FALSE
+    R_able[7][5] = TRUE
+    D_able[6][8] = FALSE
+  -> State: 1.31 <-
+    board[7][7] = "floor"
+    board[7][8] = "warehouse_keeper"
+    board[7][9] = "box"
+    U_able[8][9] = FALSE
+    L_able[7][10] = FALSE
+    L_able[7][8] = TRUE
+    R_able[7][7] = FALSE
+    R_able[7][6] = TRUE
+  -> State: 1.32 <-
+    board[7][8] = "floor"
+    board[7][9] = "warehouse_keeper"
+    board[7][10] = "box"
+    L_able[7][11] = FALSE
+    L_able[7][9] = TRUE
+    R_able[7][8] = FALSE
+    R_able[7][7] = TRUE
+    D_able[6][8] = TRUE
+  -> State: 1.33 <-
+    board[7][9] = "floor"
+    board[7][10] = "warehouse_keeper"
+    board[7][11] = "box"
+    U_able[8][11] = FALSE
+    U_able[8][9] = TRUE
+    L_able[7][12] = FALSE
+    L_able[7][10] = TRUE
+    R_able[7][9] = FALSE
+    R_able[7][8] = TRUE
+  -> State: 1.34 <-
+    board[7][10] = "floor"
+    board[7][11] = "warehouse_keeper"
+    board[7][12] = "box"
+    L_able[7][13] = FALSE
+    L_able[7][11] = TRUE
+    R_able[7][10] = FALSE
+    R_able[7][9] = TRUE
+  -> State: 1.35 <-
+    board[7][11] = "floor"
+    board[7][12] = "warehouse_keeper"
+    board[7][13] = "box"
+    U_able[8][11] = TRUE
+    L_able[7][14] = FALSE
+    L_able[7][12] = TRUE
+    R_able[7][11] = FALSE
+    R_able[7][10] = TRUE
+  -> State: 1.36 <-
+    board[7][12] = "floor"
+    board[7][13] = "warehouse_keeper"
+    board[7][14] = "box"
+    L_able[7][15] = FALSE
+    L_able[7][13] = TRUE
+    R_able[7][12] = FALSE
+    R_able[7][11] = TRUE
+  -> State: 1.37 <-
+    board[7][13] = "floor"
+    board[7][14] = "warehouse_keeper"
+    board[7][15] = "box"
+    U_able[8][14] = FALSE
+    L_able[7][16] = FALSE
+    L_able[7][14] = TRUE
+    R_able[7][13] = FALSE
+    R_able[7][12] = TRUE
+    D_able[6][14] = FALSE
+  -- Loop starts here
+  -> State: 1.38 <-
+    board[7][14] = "floor"
+    board[7][15] = "warehouse_keeper"
+    board[7][16] = "box_on_goal"
+    solve = TRUE
+    goal3 = 4
+    U_able[8][15] = FALSE
+    U_able[8][14] = TRUE
+    L_able[7][17] = FALSE
+    L_able[7][15] = TRUE
+    R_able[7][15] = FALSE
+    R_able[7][14] = FALSE
+    R_able[7][13] = TRUE
+    D_able[6][15] = FALSE
+    D_able[6][14] = TRUE
+  -> State: 1.39 <-

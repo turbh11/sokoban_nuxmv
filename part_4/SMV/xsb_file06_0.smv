@@ -2,7 +2,7 @@ MODULE main
 VAR
     board: array 0..9 of array 0..10 of {"warehouse_keeper","warehouse_keeper_on_goal", "box", "box_on_goal", "wall", "goal", "floor"};
     shift: {"L" , "R" , "U" , "D" , 0};
-    count_of_box_on_goals: 0..3;
+    count_of_box_on_goals: 0..2;
 
 
 ASSIGN
@@ -244,7 +244,7 @@ DEFINE
     U_able[8][9] := (board[7][9] = "floor" ) | ((board[7][9] = "box" ) &  (board[6][9] = "floor"));
     L_able[8][9] := (board[8][8] = "floor" ) | ((board[8][8] = "box" ) &  (board[8][7] = "floor"));
     goal1 := case  -- for each goal/box on goal in init.
-       board[2][7] = "box_on_goal" : 2;
+       board[2][7] = "box_on_goal" : 1;
        TRUE: 0;
     esac;
     goal2 := case  -- for each goal/box on goal in init.

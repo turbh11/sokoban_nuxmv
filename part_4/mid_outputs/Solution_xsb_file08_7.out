@@ -1,6 +1,6 @@
 #####################
 #### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file08_7.smv ####
-#### Execution time: 4.141996145248413 seconds = 0:00:04.141996 ######
+#### Execution time: 5.118697166442871 seconds = 0:00:05.118697 ######
 #### the solution steps are: R D D R R U U R U L L L (12 steps) ####
 #################
 
@@ -141,14 +141,14 @@ Trace Type: Counterexample
     board[8][8] = "wall"
     board[8][9] = "wall"
     shift = 0
-    count_of_box_on_goals = 17
+    count_of_box_on_goals = 34
     solve = FALSE
     goal6 = 0
-    goal5 = 5
-    goal4 = 6
+    goal5 = 10
+    goal4 = 12
     goal3 = 0
     goal2 = 0
-    goal1 = 6
+    goal1 = 12
     L_able[7][8] = TRUE
     U_able[7][8] = TRUE
     L_able[7][7] = TRUE
@@ -362,12 +362,13 @@ Trace Type: Counterexample
     L_able[4][6] = FALSE
     R_able[4][5] = TRUE
     R_able[4][3] = FALSE
+  -- Loop starts here
   -> State: 1.13 <-
     board[4][3] = "box_on_goal"
     board[4][4] = "warehouse_keeper"
     board[4][5] = "floor"
     solve = TRUE
-    goal3 = 2
+    goal3 = 1
     U_able[5][4] = FALSE
     L_able[4][6] = TRUE
     L_able[4][5] = FALSE
@@ -375,21 +376,27 @@ Trace Type: Counterexample
     R_able[4][2] = FALSE
     D_able[3][5] = TRUE
     D_able[3][4] = FALSE
-  -- Loop starts here
   -> State: 1.14 <-
-    board[4][2] = "box_on_goal"
-    board[4][3] = "warehouse_keeper_on_goal"
     board[4][4] = "floor"
-    goal3 = 0
-    goal2 = 5
+    board[4][5] = "warehouse_keeper"
+    shift = "R"
     U_able[5][4] = TRUE
-    U_able[5][3] = FALSE
-    U_able[5][2] = FALSE
+    L_able[4][6] = FALSE
     L_able[4][5] = TRUE
-    L_able[4][4] = FALSE
-    L_able[4][3] = FALSE
+    R_able[4][4] = FALSE
     R_able[4][3] = TRUE
-    R_able[4][1] = FALSE
+    R_able[4][2] = TRUE
+    D_able[3][5] = FALSE
     D_able[3][4] = TRUE
-    D_able[3][3] = FALSE
   -> State: 1.15 <-
+    board[4][4] = "warehouse_keeper"
+    board[4][5] = "floor"
+    shift = "L"
+    U_able[5][4] = FALSE
+    L_able[4][6] = TRUE
+    L_able[4][5] = FALSE
+    R_able[4][4] = TRUE
+    R_able[4][3] = FALSE
+    R_able[4][2] = FALSE
+    D_able[3][5] = TRUE
+    D_able[3][4] = FALSE

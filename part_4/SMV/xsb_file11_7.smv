@@ -2,7 +2,7 @@ MODULE main
 VAR
     board: array 0..10 of array 0..18 of {"warehouse_keeper","warehouse_keeper_on_goal", "box", "box_on_goal", "wall", "goal", "floor"};
     shift: {"L" , "R" , "U" , "D" , 0};
-    count_of_box_on_goals: 0..33;
+    count_of_box_on_goals: 0..50;
 
 
 ASSIGN
@@ -88,7 +88,7 @@ ASSIGN
     init(board[4][3]) := "floor";
     init(board[4][4]) := "floor";
     init(board[4][5]) := "floor";
-    init(board[4][6]) := "floor";
+    init(board[4][6]) := "box";
     init(board[4][7]) := "floor";
     init(board[4][8]) := "floor";
     init(board[4][9]) := "wall";
@@ -136,7 +136,7 @@ ASSIGN
     init(board[6][13]) := "wall";
     init(board[6][14]) := "floor";
     init(board[6][15]) := "floor";
-    init(board[6][16]) := "goal";
+    init(board[6][16]) := "box_on_goal";
     init(board[6][17]) := "box_on_goal";
     init(board[6][18]) := "wall";
     init(board[7][0]) := "wall";
@@ -154,8 +154,8 @@ ASSIGN
     init(board[7][12]) := "floor";
     init(board[7][13]) := "floor";
     init(board[7][14]) := "floor";
-    init(board[7][15]) := "warehouse_keeper";
-    init(board[7][16]) := "box_on_goal";
+    init(board[7][15]) := "floor";
+    init(board[7][16]) := "warehouse_keeper_on_goal";
     init(board[7][17]) := "box_on_goal";
     init(board[7][18]) := "wall";
     init(board[8][0]) := "wall";
@@ -175,7 +175,7 @@ ASSIGN
     init(board[8][14]) := "floor";
     init(board[8][15]) := "floor";
     init(board[8][16]) := "goal";
-    init(board[8][17]) := "box_on_goal";
+    init(board[8][17]) := "goal";
     init(board[8][18]) := "wall";
     init(board[9][0]) := "wall";
     init(board[9][1]) := "wall";
@@ -216,7 +216,7 @@ ASSIGN
     init(board[10][17]) := "wall";
     init(board[10][18]) := "wall";
     init(shift):= 0;
-    init(count_of_box_on_goals) := 23;
+    init(count_of_box_on_goals) := 28;
 
 
 DEFINE
@@ -365,30 +365,30 @@ DEFINE
     U_able[9][9] := (board[8][9] = "floor" ) | ((board[8][9] = "box" ) &  (board[7][9] = "floor"));
     L_able[9][9] := (board[9][8] = "floor" ) | ((board[9][8] = "box" ) &  (board[9][7] = "floor"));
     goal1 := case  -- for each goal/box on goal in init.
-       board[6][16] = "box_on_goal" : 5;
+       board[6][16] = "box_on_goal" : 6;
        TRUE: 0;
     esac;
     goal2 := case  -- for each goal/box on goal in init.
-       board[6][17] = "box_on_goal" : 6;
+       board[6][17] = "box_on_goal" : 12;
        TRUE: 0;
     esac;
     goal3 := case  -- for each goal/box on goal in init.
-       board[7][16] = "box_on_goal" : 5;
+       board[7][16] = "box_on_goal" : 4;
        TRUE: 0;
     esac;
     goal4 := case  -- for each goal/box on goal in init.
-       board[7][17] = "box_on_goal" : 6;
+       board[7][17] = "box_on_goal" : 10;
        TRUE: 0;
     esac;
     goal5 := case  -- for each goal/box on goal in init.
-       board[8][16] = "box_on_goal" : 5;
+       board[8][16] = "box_on_goal" : 6;
        TRUE: 0;
     esac;
     goal6 := case  -- for each goal/box on goal in init.
-       board[8][17] = "box_on_goal" : 6;
+       board[8][17] = "box_on_goal" : 12;
        TRUE: 0;
     esac;
-    solve := (goal1 + goal2 + goal3 + goal4 + goal5 + goal6) > 23;
+    solve := (goal1 + goal2 + goal3 + goal4 + goal5 + goal6) > 28;
 
 
 ASSIGN

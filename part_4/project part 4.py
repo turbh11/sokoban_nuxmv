@@ -35,7 +35,8 @@ class Sokoban:
         self.iteration_results = []
         self.box_priority = self.calculate_target_counts()
         self.max_priority_box =sum(sum(row) for row in self.box_priority)
-        
+        self.box_locations = [[0]*self.width for _ in range(self.length)]
+
 
     def validate_board(self):
         # Check if all rows have the same length
@@ -111,12 +112,78 @@ class Sokoban:
                             else:
                                 break
                         k -= 1
-        counts = [[sum([counts_tb[i][j], counts_bt[i][j], counts_lr[i][j], counts_rl[i][j]]) for j in range(self.width)] for i in range(self.length)]        
+        #counts = [[sum([counts_tb[i][j], counts_bt[i][j], counts_lr[i][j], counts_rl[i][j]]) for j in range(self.width)] for i in range(self.length)]        
         #counts = [[max(counts_tb[i][j], counts_bt[i][j], counts_lr[i][j], counts_rl[i][j]) for j in range(self.width)] for i in range(self.length)]
+        counts1 = [[max(counts_tb[i][j], counts_bt[i][j]) + max(counts_lr[i][j], counts_rl[i][j]) for j in range(self.width)] for i in range(self.length)]
+        counts_lr = [[0]*self.width for _ in range(self.length)]
+        counts_bt = [[0]*self.width for _ in range(self.length)]
+
+        # First pass: left to right
+        for i in range(self.length):
+            score = 0
+            for j in range(self.width):
+                if self.board[i][j] in ['#','-','@','$']:
+                    score = 0  # Reset score when hitting a wall
+                elif self.board[i][j] in ['.', '+', '*']:
+                    score += 1  # Increment score for each goal
+                    counts_lr[i][j] = score
+        # Second pass: right to left
+        for i in range(self.length):
+            score = 0
+            for j in range(self.width-1, -1, -1):
+                if self.board[i][j] in ['#','-','@','$']:
+                    score = 0  # Reset score when hitting a wall
+                elif self.board[i][j] in ['.', '+', '*']:
+                    score += 1  # Increment score for each goal
+                    counts_lr[i][j] = min(counts_lr[i][j], score)  # The final score is the minimum of the two scores
+        
+        # Top to bottom
+        for j in range(self.width):
+            score = 0
+            for i in range(self.length):
+                if self.board[i][j] in ['#','-','@','$']:
+                    score = 0  # Reset score when hitting a wall
+                elif self.board[i][j] in ['.', '+', '*']:
+                    score += 1  # Increment score for each goal
+                    counts_tb[i][j] = score
+        # Bottom to top
+        for j in range(self.width):
+            score = 0
+            for i in range(self.length-1, -1, -1):
+                if self.board[i][j] in ['#','-','@','$']:
+                    score = 0  # Reset score when hitting a wall
+                elif self.board[i][j] in ['.', '+', '*']:
+                    score += 1  # Increment score for each goal
+                    counts_tb[i][j] = min(counts_tb[i][j], score)  # The final score is the minimum of the two scores
+        counts2 = [[counts_tb[i][j] + counts_lr[i][j] for j in range(self.width)] for i in range(self.length)]
+        counts3 = [[max(counts1[i][j], counts2[i][j]) for j in range(self.width)] for i in range(self.length)]
+
+        counts4 = [[0]*self.width for _ in range(self.length)]
+        # check all negibors and add 2 for wall one for goal
         for i in range(self.length):
             for j in range(self.width):
-                if self.board[i][j] in ['.', '+', '*'] and counts[i][j] == 0: 
+                if self.board[i][j] in ['.', '+', '*']:
+                    counts4[i][j] = 1
+                    for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:  # Up, down, left, right
+                        ni, nj = i + di, j + dj
+                        if 0 <= ni < self.length and 0 <= nj < self.width:  # Check if neighbor is inside the board
+                            if self.board[ni][nj] == '#':
+                                counts4[i][j] += 2  
+                            if self.board[ni][nj] in ['.', '+', '*']:
+                                counts4[i][j] += 1
+                            if self.board[ni][nj] in ['-', '@', '$']:
+                                counts4[i][j] -= 1
+                                ni2, nj2 = ni + di, nj + dj
+                                if 0 <= ni2 < self.length and 0 <= nj2 < self.width:
+                                    if self.board[ni2][nj2] in ['-', '@', '$']:
+                                        counts4[i][j] -= 2
+        counts = [[counts3[i][j] + counts4[i][j] for j in range(self.width)] for i in range(self.length)]
+
+        for i in range(self.length):
+            for j in range(self.width):
+                if self.board[i][j] in ['.', '+', '*'] and counts[i][j] <= 0: 
                     counts[i][j] = 1
+        
         return counts
 
     '''
@@ -180,8 +247,10 @@ class Sokoban:
                     self.goal_location.append("["+str(row)+"]["+str(col)+"]")
                     procrssed_goal.append(self.goal(row,col))
                 elif cell == '$':
+                    self.box_locations[row][col] = 1
                     processed_floor_box_wk.append(self.floor_box_warrkeeper(row,col))
                 elif cell == '*':
+                    self.box_locations[row][col] = 1
                     self.goal_location.append("["+str(row)+"]["+str(col)+"]")
                     self.num_of_boxes += self.box_priority[row][col]
                     procrssed_goal.append(self.goal(row,col))
@@ -485,7 +554,7 @@ class Sokoban:
             file.write(self.write_define())
             
 	### to be add###
-
+            self.calculate_next_goal
             goal_statements = []
             for i in range(len(self.goal_location)):
                 goal_name = f'goal{i+1}'
@@ -518,8 +587,45 @@ class Sokoban:
             #LTLSPEC
             file.write('LTLSPEC ! F solve\n')        
     
-        
-     
+    '''
+    Name: calculate_next_goal
+    Input: None
+    Output: goal_count
+    Operation: take the box_priority array and box_location array 
+    and go over the box_location to see if box is on a spot 
+    in the box_priority array and if it is so check שround the number look for the highest priority as long as you don't see 0 and there is no other box that is on this priority
+    '''    
+    def calculate_next_goal(self):
+        goal_count = 0
+        for row in range(1, self.length-1):
+            for col in range(1, self.width-1):
+                if self.box_locations[row][col] == 1:
+                    if self.box_priority[row][col] == 0:
+                        continue
+                    else:# if the box is on a goal
+                        max_priority = self.box_priority[row][col]
+                        max_priority_location = (row, col)
+                        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:  # Up, down, left, right
+                            ni, nj = row + di, col + dj
+                            while 0 <= ni < self.length and 0 <= nj < self.width:  # Check if neighbor is inside the board
+                                if self.box_priority[ni][nj] == 0:
+                                    break
+                                if self.box_priority[ni][nj] > max_priority and self.box_locations[ni][nj] == 0:
+                                    max_priority = self.box_priority[ni][nj]
+                                    max_priority_location = (ni, nj)
+                                elif self.box_priority[ni][nj] > max_priority and self.box_locations[ni][nj] == 1:
+                                    max_priority = self.box_priority[ni][nj]
+                                    max_priority_location = (ni, nj)
+                                    goal_count += self.box_priority[ni][nj]
+                                ni += di
+                                nj += dj
+                        if max_priority_location != (row, col):
+                            self.box_locations[row][col] = 0
+                            self.box_locations[max_priority_location[0]][max_priority_location[1]] = 1
+                            goal_count += max_priority
+                    
+    
+    
     '''
     Name: justice
     Input: None

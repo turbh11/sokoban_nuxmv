@@ -1,6 +1,6 @@
 #####################
 #### nuxmv command: nuXmv.exe -bmc -bmc_length 80 xsb_file08_8.smv ####
-#### Execution time: 0.1490004062652588 seconds = 0:00:00.149000 ######
+#### Execution time: 0.15399622917175293 seconds = 0:00:00.153996 ######
 #### the solution steps are: L (1 steps) ####
 #################
 
@@ -129,14 +129,14 @@ Trace Type: Counterexample
     board[8][8] = "wall"
     board[8][9] = "wall"
     shift = 0
-    count_of_box_on_goals = 19
+    count_of_box_on_goals = 35
     solve = FALSE
     goal6 = 0
-    goal5 = 5
-    goal4 = 6
-    goal3 = 2
+    goal5 = 10
+    goal4 = 12
+    goal3 = 1
     goal2 = 0
-    goal1 = 6
+    goal1 = 12
     L_able[7][8] = TRUE
     U_able[7][8] = TRUE
     L_able[7][7] = TRUE
@@ -250,7 +250,7 @@ Trace Type: Counterexample
     count_of_box_on_goals = 0
     solve = TRUE
     goal3 = 0
-    goal2 = 5
+    goal2 = 10
     U_able[5][4] = TRUE
     U_able[5][3] = FALSE
     U_able[5][2] = FALSE

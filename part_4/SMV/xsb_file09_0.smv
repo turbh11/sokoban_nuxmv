@@ -2,7 +2,7 @@ MODULE main
 VAR
     board: array 0..5 of array 0..6 of {"warehouse_keeper","warehouse_keeper_on_goal", "box", "box_on_goal", "wall", "goal", "floor"};
     shift: {"L" , "R" , "U" , "D" , 0};
-    count_of_box_on_goals: 0..2;
+    count_of_box_on_goals: 0..3;
 
 
 ASSIGN
@@ -108,7 +108,7 @@ DEFINE
        TRUE: 0;
     esac;
     goal2 := case  -- for each goal/box on goal in init.
-       board[3][5] = "box_on_goal" : 1;
+       board[3][5] = "box_on_goal" : 2;
        TRUE: 0;
     esac;
     solve := (goal1 + goal2) > 0;
